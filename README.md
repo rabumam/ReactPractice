@@ -1,10 +1,10 @@
 # JavaScript Exercise Solution
 
 ## Implementation Overview
+ Displays active and inactive users separately with the ability to toggle their status
 
-### Core Functionalities
-The core functionalities of this solution include:
-- Transforming user data efficiently
+### Core Functionalities include: 
+- Transforming user data 
 - Fetching user posts asynchronously
 - Generating user profile HTML dynamically
 - Managing application state with a simple state manager
@@ -20,7 +20,7 @@ function processUsers(users) {
         .sort((a, b) => a.fullName.localeCompare(b.fullName));
 }
 ```
-- Filters inactive users
+
 - Transforms objects to `{id, fullName, email}`
 - Sorts alphabetically by `fullName`
 
