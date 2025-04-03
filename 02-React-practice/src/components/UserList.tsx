@@ -10,7 +10,7 @@ interface UserListProps {
   onViewProfile: (user: IUser) => void;
   onEditUser: (user: IUser) => void;
   onDeleteUser: (userId: number) => void;
-  viewMode: "card" | "table";
+  viewMode: "card" | "table"; 
 }
 
 const UserList: React.FC<UserListProps> = ({ users, onViewProfile, onEditUser, onDeleteUser, viewMode }) => {

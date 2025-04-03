@@ -18,7 +18,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({ initialUsers }) => {
   const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
   const [editingUser, setEditingUser] = useState<IUser | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [viewMode, setViewMode] = useState<"card" | "list">("card");
+  const [viewMode, setViewMode] = useState<"card" | "table">("card");
   const [confirmDelete, setConfirmDelete] = useState<{ show: boolean; userId: number | null }>({ show: false, userId: null });
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({ initialUsers }) => {
   }, [users]);
 
   const toggleViewMode = () => {
-    setViewMode((prev) => (prev === "card" ? "list" : "card"));
+    setViewMode((prev) => (prev === "card" ? "table" : "card"));
   };
 
   const handleViewProfile = (user: IUser) => {
@@ -143,12 +143,12 @@ const UserDashboard: React.FC<UserDashboardProps> = ({ initialUsers }) => {
         ) : (
           <motion.div key="list" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <UserList
-              users={users}
-              viewMode={viewMode}
-              onViewProfile={handleViewProfile}
-              onEditUser={handleEditUser}
-              onDeleteUser={handleDeleteUser}
-            />
+  users={users}
+  viewMode={viewMode}  // Now properly typed
+  onViewProfile={handleViewProfile}
+  onEditUser={handleEditUser}
+  onDeleteUser={handleDeleteUser}
+/>
           </motion.div>
         )}
       </AnimatePresence>
