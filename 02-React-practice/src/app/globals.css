@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 17, 24, 39;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark {
+  --background-rgb: 17, 24, 39;
+  --foreground-rgb: 255, 255, 255;
+}
+
+.light {
+  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0;
+}
