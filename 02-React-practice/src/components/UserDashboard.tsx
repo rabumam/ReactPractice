@@ -106,11 +106,12 @@ const UserDashboard: React.FC<UserDashboardProps> = ({ initialUsers }) => {
       theme === 'dark' ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-800'
     }`}>
       {!showForm && (
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4 mr-16">
           <h1 className={`text-2xl font-bold ${theme === 'dark' ? 'text-gray-100' : 'text-gray-800'}`}>
             User Management Dashboard
           </h1>
           <div className="flex gap-2">
+            
             <button 
               onClick={toggleViewMode}
               className={`px-4 py-2 rounded transition-colors ${
