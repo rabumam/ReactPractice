@@ -113,31 +113,32 @@ function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   return (
     <button
-  onClick={toggleTheme}
-  className={`p-2 rounded-lg absolute top-4 right-4 transition-colors duration-300 ${
-    theme === "dark" 
-      ? "bg-gray-200 text-gray-800 hover:bg-gray-300" 
-      : "bg-gray-800 text-gray-100 hover:bg-gray-700"
-  }`}
-  aria-label="Toggle theme"
->
-  <motion.div
-    initial={{ scale: 1 }}
-    animate={{ scale: 1 }}
-    key={theme}
-  >
-    {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-  </motion.div>
-</button>
+      onClick={toggleTheme}
+      className={`p-2 rounded-lg fixed top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8
+        transition-all duration-300 hover:scale-110
+        ${theme === "dark" 
+          ? "bg-gray-200 text-gray-800 hover:bg-gray-300" 
+          : "bg-gray-800 text-gray-100 hover:bg-gray-700"}
+      `}
+      aria-label="Toggle theme"
+    >
+      <motion.div
+        initial={{ scale: 1 }}
+        animate={{ scale: 1 }}
+        key={theme}
+        className="w-6 h-6 md:w-8 md:h-8"  // Responsive icon sizing
+      >
+        {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+      </motion.div>
+    </button>
   );
 }
-
 export default function Home() {
   return (
     <ThemeProvider>
       <div className="min-h-screen relative">
         <ThemeToggle />
-        <main className="p-8">
+        <main >
           
           <UserDashboard initialUsers={initialUsers} />
         </main>
