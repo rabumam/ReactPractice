@@ -12,7 +12,7 @@ interface LoginPageProps {
 }
 
 const LoginPage: React.FC<LoginPageProps> = ({ users }) => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const { login } = useAuth();
   const [submissionError, setSubmissionError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -49,10 +49,9 @@ const LoginPage: React.FC<LoginPageProps> = ({ users }) => {
         return;
       }
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      login(user);
-    } catch (error) {
-      setSubmissionError("Login failed. Please try again.");
+      await login(user);
+    } catch {
+      setSubmissionError("An error occurred. Please try again.");
     }
   };
 

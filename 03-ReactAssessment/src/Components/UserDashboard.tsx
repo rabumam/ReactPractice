@@ -348,7 +348,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
       {confirmDelete.show && (
         <ConfirmationDialog
           message="Are you sure you want to delete this user?"
-          confirmText="Delete User"
+          
           onConfirm={confirmDeleteUser}
           onCancel={cancelDeleteUser}
         />

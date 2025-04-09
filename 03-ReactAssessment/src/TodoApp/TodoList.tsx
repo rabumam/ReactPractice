@@ -2,7 +2,7 @@
 import React from "react";
 import { ITodo } from "./TodoApp";
 import TodoItem from "./TodoItem";
-import { motion, AnimatePresence } from "framer-motion";
+import {  AnimatePresence } from "framer-motion";
 
 interface TodoListProps {
   todos: ITodo[];

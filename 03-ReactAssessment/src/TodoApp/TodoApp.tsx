@@ -76,7 +76,7 @@ const TodoApp: React.FC = () => {
         dueDate: todoData.dueDate || new Date().toISOString().slice(0, 10),
         category: todoData.category || "General",
         priority: (todoData.priority as "Low" | "Medium" | "High") || "Medium",
-        status: "Tod do",
+        status: "To do",
         createdAt: new Date().toISOString(),
       };
       setTodos([newTodo, ...todos]);

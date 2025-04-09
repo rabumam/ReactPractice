@@ -7,7 +7,7 @@ interface ConfirmationDialogProps {
   onCancel: () => void;
 }
 
-const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({ message, onConfirm, onCancel }) => {
+const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({ message,  onConfirm, onCancel }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white dark:bg-gray-800 p-6 rounded shadow-md">
