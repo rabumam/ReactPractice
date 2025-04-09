@@ -72,9 +72,9 @@ const UserList: React.FC<UserListProps> = ({ users, onViewProfile, onEditUser, o
         )
       ) : (
         filteredUsers.length > 0 ? (
-          <motion.table layout className="w-full border" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+           <motion.table layout className="w-full border" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <thead>
-              <tr className="bg-gray-100 border-b">
+              <tr className={`border-b ${theme === "dark" ? "bg-gray-800 border-gray-700" : "bg-gray-100 border-gray-200"}`}>
                 <th className="p-2 text-left">Name</th>
                 <th className="p-2 text-left">Email</th>
                 <th className="p-2 text-left">Role</th>
@@ -84,29 +84,15 @@ const UserList: React.FC<UserListProps> = ({ users, onViewProfile, onEditUser, o
             </thead>
             <tbody>
               {filteredUsers.map((user) => (
-                <tr key={user.id} className="border-b">
-                  <td className="p-2">{user.name}</td>
-                  <td className="p-2">{user.email}</td>
-                  <td className="p-2">{user.role}</td>
-                  <td className="p-2">
-                    {user.isActive ? (
-                      <span className="text-green-600">Active</span>
-                    ) : (
-                      <span className="text-red-600">Inactive</span>
-                    )}
-                  </td>
-                  <td className="p-2">
-                    <div className="flex gap-2">
-                      <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={() => onViewProfile(user)}>
-                        View
-                      </button>
-                      <button className="bg-yellow-500 text-white px-2 py-1 rounded" onClick={() => onEditUser(user)}>
-                        Edit
-                      </button>
-                      <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={() => onDeleteUser(user.id)}>
-                        Delete
-                      </button>
-                    </div>
+                <tr key={user.id} className={`border-b ${theme === "dark" ? "border-gray-700" : "border-gray-200"}`}>
+                  <td className={`p-2 ${theme === "dark" ? "text-gray-100" : "text-gray-800"}`}>{user.name}</td>
+                  <td className={`p-2 ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>{user.email}</td>
+                  <td className={`p-2 ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>{user.role}</td>
+                  <td className={`p-2 ${user.isActive ? "text-green-500" : "text-red-500"}`}>{user.isActive ? "Active" : "Inactive"}</td>
+                  <td className="p-2 flex gap-2">
+                    <button className="text-blue-500" onClick={() => onViewProfile(user)}>View</button>
+                    <button className="text-gray-500" onClick={() => onEditUser(user)}>Edit</button>
+                    <button className="text-red-500" onClick={() => onDeleteUser(user.id)}>Delete</button>
                   </td>
                 </tr>
               ))}
